@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard - Construction Material Supply</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+
+<div class="manager-layout">
+
+    <aside class="manager-sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">◆</div>
+            <div>
+                <strong>CONSTRUCTION</strong>
+                <span>MATERIAL SUPPLY</span>
+            </div>
+        </div>
+
+        <div class="sidebar-user">
+            <div class="user-avatar">SM</div>
+            <div>
+                <strong>{{ session.get('user_name', 'Supply Manager') }}</strong>
+                <span>Supply Manager</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-section-title">MAIN MENU</div>
+
+            <a href="{{ url_for('dashboard.manager_dashboard') }}" class="nav-link active">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>♙</span>
+                Users
+                <small>0</small>
+            </a>
+
+            <a href="{{ url_for('dashboard.manager_materials') }}" class="nav-link">
+                <span>▤</span>
+                Materials
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>⌑</span>
+                Requests
+                <small>0</small>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>▱</span>
+                Deliveries
+                <small>0</small>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>◫</span>
+                Material History
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="{{ url_for('auth.logout') }}" class="logout-link">
+                <span>↪</span>
+                Logout
+            </a>
+        </div>
+
+    </aside>
+
+    <main class="manager-main">
+
+        <header class="dashboard-header">
+            <div>
+                <div class="breadcrumb">SUPPLY MANAGEMENT / DASHBOARD</div>
+                <h1>Supply Manager Dashboard</h1>
+                <p>Welcome, {{ session.get('user_name', 'Supply Manager') }}</p>
+            </div>
+
+            <div class="system-status">
+                <span class="status-dot"></span>
+                System Online
+            </div>
+        </header>
+
+        <section class="overview-grid">
+
+            <div class="overview-card">
+                <span class="overview-label">TOTAL MATERIALS</span>
+                <strong>0</strong>
+                <span class="overview-description">Materials in inventory</span>
+            </div>
+
+            <div class="overview-card">
+                <span class="overview-label">REGISTERED USERS</span>
+                <strong>0</strong>
+                <span class="overview-description">System users</span>
+            </div>
+
+            <div class="overview-card">
+                <span class="overview-label">PENDING REQUESTS</span>
+                <strong>0</strong>
+                <span class="overview-description">Awaiting processing</span>
+            </div>
+
+            <div class="overview-card">
+                <span class="overview-label">DELIVERIES</span>
+                <strong>0</strong>
+                <span class="overview-description">Active deliveries</span>
+            </div>
+
+        </section>
+
+        <section class="management-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">MANAGEMENT</span>
+                    <h2>Supply Operations</h2>
+                </div>
+            </div>
+
+            <div class="management-grid">
+
+                <a href="{{ url_for('dashboard.manager_materials') }}" class="management-card dashboard-card">
+                    <div class="card-icon">▤</div>
+                    <h3>Materials</h3>
+                    <p>Manage construction materials, stock and availability.</p>
+                    <span class="card-arrow">→</span>
+                </a>
+
+                <a href="#" class="management-card dashboard-card">
+                    <div class="card-icon">⌑</div>
+                    <h3>Requests</h3>
+                    <p>Review and process contractor material requests.</p>
+                    <span class="card-arrow">→</span>
+                </a>
+
+                <a href="#" class="management-card dashboard-card">
+                    <div class="card-icon">▱</div>
+                    <h3>Delivery Management</h3>
+                    <p>Track material deliveries and delivery status.</p>
+                    <span class="card-arrow">→</span>
+                </a>
+
+                <a href="#" class="management-card dashboard-card">
+                    <div class="card-icon">◫</div>
+                    <h3>Material History</h3>
+                    <p>View previous material transactions and records.</p>
+                    <span class="card-arrow">→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/3d-cards.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Construction Material Supply System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+
+<body>
+
+<div class="register-container">
+
+    <div class="register-card">
+
+        <div class="logo">
+            <div class="cube">◆</div>
+        </div>
+
+        <h1>Create Account</h1>
+        <p class="subtitle">Construction Material Supply System</p>
+
+        <form method="POST" action="{{ url_for('auth.register') }}">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role" name="role" required>
+                    <option value="Contractor">Contractor</option>
+                    <option value="Supply Manager">Supply Manager</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="license-group">
+                <label for="contractor_license_number">
+                    Contractor License Number
+                </label>
+
+                <input
+                    type="text"
+                    id="contractor_license_number"
+                    name="contractor_license_number"
+                    placeholder="Enter contractor license number"
+                >
+            </div>
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="login-link">
+            Already have an account?
+            <a href="{{ url_for('auth.login') }}">Login</a>
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+    const roleSelect = document.getElementById("role");
+    const licenseGroup = document.getElementById("license-group");
+    const licenseInput = document.getElementById(
+        "contractor_license_number"
+    );
+
+    function updateLicenseField() {
+        if (roleSelect.value === "Contractor") {
+            licenseGroup.style.display = "block";
+            licenseInput.required = true;
+        } else {
+            licenseGroup.style.display = "none";
+            licenseInput.required = false;
+            licenseInput.value = "";
+        }
+    }
+
+    roleSelect.addEventListener("change", updateLicenseField);
+    updateLicenseField();
+</script>
+
+</body>
+</html>

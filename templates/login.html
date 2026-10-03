@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Construction Material Supply</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body>
+
+<div class="login-page">
+
+    <div class="login-background-shape shape-one"></div>
+    <div class="login-background-shape shape-two"></div>
+
+    <main id="login-card" class="login-card">
+
+        <section class="login-brand">
+
+            <div class="cube-wrapper">
+                <div class="cube">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="brand-text">
+                <span class="brand-small">CONSTRUCTION</span>
+                <h1>Construction Material Supply</h1>
+                <p>Login to access your dashboard</p>
+            </div>
+
+        </section>
+
+
+        <section class="login-content">
+
+            <div class="welcome-text">
+                <span class="welcome-label">WELCOME BACK</span>
+                <h2>Sign in to your account</h2>
+                <p>
+                    Manage construction materials, requests,
+                    deliveries and supply information.
+                </p>
+            </div>
+
+
+            <form id="login-form"
+                  class="login-form"
+                  method="POST"
+                  action="{{ url_for('auth.login') }}">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">&#9993;</span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">&#9993;</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-options">
+
+                    <label class="remember-option">
+                        <input type="checkbox" id="remember">
+                        <span>Remember me</span>
+                    </label>
+
+                    <span class="secure-login">
+                        &#9679; Secure Login
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="login-btn"
+                    class="btn-primary">
+
+                    <span>Login</span>
+                    <span class="button-arrow">&#8594;</span>
+
+                </button>
+
+            </form>
+
+
+            <div class="demo-box">
+
+                <div class="demo-header">
+                    <span class="demo-icon">i</span>
+
+                    <div>
+                        <strong>Demo Access</strong>
+                        <p>Use the following account to explore the system.</p>
+                    </div>
+                </div>
+
+                <div class="demo-account">
+
+                    <div>
+                        <span>SUPPLY MANAGER</span>
+                        <strong>admin@example.com</strong>
+                    </div>
+
+                    <code>admin123</code>
+
+                </div>
+
+                <div class="demo-account contractor-demo">
+
+                    <div>
+                        <span>CONTRACTOR</span>
+                        <strong>Register a new account</strong>
+                    </div>
+
+                    <span class="demo-arrow">&#8594;</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="register-section">
+
+                <span>Don't have an account?</span>
+
+                <a
+                    id="register-link"
+                    class="register-link"
+                    href="{{ url_for('auth.register') }}">
+
+                    Register here
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="login-footer">
+        <span>Construction Material Supply System</span>
+        <span>â€¢</span>
+        <span>Supply Management Portal</span>
+    </footer>
+
+</div>
+
+</body>
+</html>
+
+
